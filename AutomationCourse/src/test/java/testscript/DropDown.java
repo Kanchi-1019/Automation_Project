@@ -1,5 +1,7 @@
 package testscript;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +28,16 @@ public class DropDown extends Base{
 	 WebElement checkbox=driver.findElement(By.xpath("//input[@id='gridCheck']"));
 	 checkbox.click();
 	}
+	public void handlingListCheckBox()
+	{
+		driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
+		List<WebElement> checkbox=driver.findElements(By.xpath("//input[@class='check-box-list']"));
+		
+		for(WebElement check:checkbox)
+		{
+			check.click();
+		}
+	}
 	public void handlingRadioButton()
 	{
 		driver.navigate().to("https://selenium.qabible.in/radio-button-demo.php");
@@ -39,9 +51,11 @@ public class DropDown extends Base{
 	// TODO Auto-generated method stub
 DropDown dropdown=new DropDown();
 dropdown.initializeBrowser();
-dropdown.handlingdropdow();
+//dropdown.handlingcheckbox();
+//dropdown.handlingdropdow();
 dropdown.handlingRadioButton();
 //dropdown.driverCloseAndQuit();
+//dropdown.handlingListCheckBox();
 	}
 
 }

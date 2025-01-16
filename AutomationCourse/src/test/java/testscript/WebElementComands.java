@@ -18,6 +18,8 @@ public class WebElementComands extends Base{
 			String message=yourmessage.getText();
 			System.out.println(message);
 			showmessagefield.clear();
+			
+			
 			String backgroundcolour=showmessagebutton.getCssValue("background-color");
 			System.out.println(backgroundcolour);
 			
@@ -25,6 +27,7 @@ public class WebElementComands extends Base{
 			System.out.println(xaxis);
 			int yaxis=showmessagebutton.getLocation().getY();
 			System.out.println(yaxis);
+			
 			boolean isShowMessageButtonEnable=showmessagebutton.isEnabled();
 			System.out.println(isShowMessageButtonEnable);
 			boolean isShowMessageButtonDisplayed=showmessagebutton.isDisplayed();
@@ -36,7 +39,7 @@ public class WebElementComands extends Base{
 WebElementComands webelementcommands=new WebElementComands();
 webelementcommands.initializeBrowser();
 webelementcommands.webElementCommand();
-//webelementcommands.driverCloseAndQuit();
+webelementcommands.driverCloseAndQuit();
 	}
 
 }

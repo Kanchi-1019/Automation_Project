@@ -11,15 +11,15 @@ public class Base {
 		driver.get("https://selenium.qabible.in/index.php");
 		driver.manage().window().maximize();
 	}
-public void driverCloseAndQuit()
-{
-	driver.quit();
-}
+
+	public void driverCloseAndQuit() {
+		driver.quit();
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Base base = new Base();
 		base.initializeBrowser();
-		
 		base.driverCloseAndQuit();
 	}
 
