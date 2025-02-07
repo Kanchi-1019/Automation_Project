@@ -25,12 +25,12 @@ public class CategoryTest extends Base {
 		category.clickOnCategory();
 		category.clickNewCategory();
 		category.enterValueOnCategoryNameField();
-		boolean isImagePreviewEnabled=category.imagePreviewOfCategory();
+		boolean isImagePreviewEnabled = category.imagePreviewOfCategory();
 		category.toChooseFile();
-		assertTrue(isImagePreviewEnabled,"Unable to Choose the File");
+		assertTrue(isImagePreviewEnabled, "Unable to Choose the File");
 	}
 
-	@Test
+	@Test(description = "User can able to reset the Category list", priority = 2)
 
 	public void userCanAbleToResetTheCategoryList() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
@@ -43,11 +43,10 @@ public class CategoryTest extends Base {
 		category.clickOnCategory();
 		category.categorySearch();
 		category.clickOnResetButton();
-		String actual=driver.getCurrentUrl();
-		String expected="https://groceryapp.uniqassosiates.com/admin/list-category";
-		Assert.assertEquals(actual,expected);
-	
-		
+		String actual = driver.getCurrentUrl();
+		String expected = "https://groceryapp.uniqassosiates.com/admin/list-category";
+		Assert.assertEquals(actual, expected);
+
 	}
 
 }

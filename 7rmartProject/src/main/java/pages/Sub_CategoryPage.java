@@ -34,9 +34,10 @@ public class Sub_CategoryPage {
 	private WebElement chooseFile;
 	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement saveButton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement newAddAlert;
-	@FindBy(xpath="//td[text()='Toys']")private WebElement searchItem;
-	
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement newAddAlert;
+	@FindBy(xpath = "//td[text()='Toys']")
+	private WebElement searchItem;
 
 	public void clickOnSubCategory() {
 		subCategoryClick.click();

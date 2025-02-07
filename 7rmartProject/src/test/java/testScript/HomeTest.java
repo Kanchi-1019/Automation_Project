@@ -11,7 +11,7 @@ import utilities.ExcelUtilities;
 
 public class HomeTest extends Base {
 
-	@Test(description = "User can able to logout successfully",priority = 1)
+	@Test(description = "User can able to logout successfully", priority = 1)
 	public void isTheUserAbleToLogout() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
@@ -25,11 +25,11 @@ public class HomeTest extends Base {
 		String actual = driver.getTitle();
 		String expectedResult = "Login | 7rmart supermarket";
 		Assert.assertEquals(actual, expectedResult);
-		
+
 	}
-	@Test(description = "Verifying the DashBoard on SideBar is Clickable",priority = 2)
-	public void isDashBoardOnSideBarIsClickable() throws IOException
-	{
+
+	@Test(description = "Verifying the DashBoard on SideBar is Clickable", priority = 2)
+	public void isDashBoardOnSideBarIsClickable() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
@@ -38,7 +38,7 @@ public class HomeTest extends Base {
 		login.clickOnSigninButton();
 		HomePage home = new HomePage(driver);
 		home.clickOnDashBoard();
-		boolean isRR1Displayed=home.isManageProductIsDisplayed();
-		Assert.assertTrue(isRR1Displayed,"DashBoard on the side bar is not clickable");
+		boolean isRR1Displayed = home.isManageProductIsDisplayed();
+		Assert.assertTrue(isRR1Displayed, "DashBoard on the side bar is not clickable");
 	}
 }

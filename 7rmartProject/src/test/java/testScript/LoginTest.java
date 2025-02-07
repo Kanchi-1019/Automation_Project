@@ -7,9 +7,8 @@ import automationCore.Base;
 import pages.LoginPage;
 import utilities.ExcelUtilities;
 
-
 public class LoginTest extends Base {
-	@Test(description = "Login using valid credentials", priority = 1,groups = {"smoke"})
+	@Test(description = "Login using valid credentials", priority = 1, groups = { "smoke" })
 	public void userLoginUsingValidUsernameAndValidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
@@ -17,12 +16,12 @@ public class LoginTest extends Base {
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
 		login.clickOnSigninButton();
-		boolean isDashBoardDisplayed=login.isDashboardisDisplayed();
-		Assert.assertTrue(isDashBoardDisplayed,"Unable to login with given Credentials");
+		boolean isDashBoardDisplayed = login.isDashboardisDisplayed();
+		Assert.assertTrue(isDashBoardDisplayed, "Unable to login with given Credentials");
 
 	}
 
-	@Test(description = "Login using valid username and invalid password", priority = 2,groups= {"smoke"})
+	@Test(description = "Login using valid username and invalid password", priority = 2, groups = { "smoke" })
 	public void userLoginUsingValidUsernameAndInvalidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(2, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(2, 1, "LoginPage");
@@ -30,8 +29,8 @@ public class LoginTest extends Base {
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
 		login.clickOnSigninButton();
-		//WaitUtility wait=new WaitUtility();
-		//wait.waitUntilTheAlertIsPresent(driver,signInBu);
+		// WaitUtility wait=new WaitUtility();
+		// wait.waitUntilTheAlertIsPresent(driver,signInBu);
 		boolean isAlertDisplayed = login.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, "Successfull login with invalid password");
 

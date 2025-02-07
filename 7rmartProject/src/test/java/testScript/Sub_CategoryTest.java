@@ -8,10 +8,9 @@ import pages.LoginPage;
 import pages.Sub_CategoryPage;
 import utilities.ExcelUtilities;
 
-
 public class Sub_CategoryTest extends Base {
 
-		@Test(description = "User can able to Select SubCategory from Search List", priority = 3)
+	@Test(description = "User can able to Select SubCategory from Search List", priority = 1)
 	public void selectSubCategoryFromSearchList() throws IOException {
 
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
@@ -25,11 +24,11 @@ public class Sub_CategoryTest extends Base {
 		subCategory.clickOnSearchButtonOfSubCategory();
 		subCategory.selectSubCategory();
 		subCategory.submitSearch();
-		boolean isSearchedItemDisplayed=subCategory.isitemDisplayed();
-		Assert.assertTrue(isSearchedItemDisplayed,"Item not Listed");
-		}
+		boolean isSearchedItemDisplayed = subCategory.isitemDisplayed();
+		Assert.assertTrue(isSearchedItemDisplayed, "Item not Listed");
+	}
 
-	@Test(description = " User can able to add new Sub_category")
+	@Test(description = " User can able to add new Sub_category", priority = 2)
 	public void userCanAbleToAddNewSub_Category() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
@@ -44,7 +43,7 @@ public class Sub_CategoryTest extends Base {
 		subCategory.enterSubCategoryName();
 		subCategory.toChooseFile();
 		subCategory.clickOnSaveButton();
-		boolean isSubCategoryCreatedAlertdisplayed=subCategory.newAddAlertDisplayed();
-		Assert.assertTrue(isSubCategoryCreatedAlertdisplayed,"Unable to create Sub_category");
-}
+		boolean isSubCategoryCreatedAlertdisplayed = subCategory.newAddAlertDisplayed();
+		Assert.assertTrue(isSubCategoryCreatedAlertdisplayed, "Unable to create Sub_category");
+	}
 }
