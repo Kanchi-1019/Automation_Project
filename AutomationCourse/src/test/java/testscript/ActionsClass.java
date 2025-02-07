@@ -32,8 +32,9 @@ public class ActionsClass extends Base {
 		WebElement dropArea=driver.findElement(By.xpath("//div[@id='mydropzone']"));
 		action.dragAndDrop(dragable, dropArea).build().perform();
 		
-		
 	}
+	
+	
 	public void keyBoardActions() throws AWTException
 	{
 		//driver.navigate().to("https://selenium.qabible.in/simple-form-demo.php");

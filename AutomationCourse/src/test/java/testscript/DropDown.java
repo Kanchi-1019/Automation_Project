@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class DropDown extends Base {
 
@@ -27,7 +29,7 @@ public class DropDown extends Base {
 		select2.selectByValue("javascript");
 
 	}
-
+@Test
 	public void handlingcheckbox() {
 		driver.navigate().to("https://selenium.qabible.in/check-box-demo.php");
 		WebElement checkbox = driver.findElement(By.xpath("//input[@id='gridCheck']"));
@@ -36,6 +38,8 @@ public class DropDown extends Base {
 		fluentWait.until(ExpectedConditions.elementToBeClickable(checkbox));
 
 		checkbox.click();
+		boolean isCheckBoxSelected=checkbox.isSelected();
+		Assert.assertFalse(isCheckBoxSelected,"Check box is selected");
 	}
 
 	public void handlingListCheckBox() {
