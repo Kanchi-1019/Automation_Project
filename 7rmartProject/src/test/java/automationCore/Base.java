@@ -1,8 +1,6 @@
 package automationCore;
 
 import java.io.IOException;
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -54,7 +52,7 @@ public class Base {
 		ScreenShotUtility screenShot=new ScreenShotUtility();
 		screenShot.getScreenshot(driver, iTestResult.getName());
 	}
-		//driver.quit();
+		driver.quit();
 		
 	}
 	

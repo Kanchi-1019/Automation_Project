@@ -33,17 +33,15 @@ public class CategoryPage {
 	private WebElement enterSearchCategory;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement clickSearchButton;
-	@FindBy(id ="imagePreview")private WebElement imagePreview;
-	
+	@FindBy(id = "imagePreview")
+	private WebElement imagePreview;
 
 	public void clickOnCategory() {
 		categoryButton.click();
-
 	}
 
 	public void clickNewCategory() {
 		newButton.click();
-
 	}
 
 	public boolean toChooseFile() {
@@ -52,30 +50,21 @@ public class CategoryPage {
 		return false;
 	}
 
-		public void enterValueOnCategoryNameField() {
+	public void enterValueOnCategoryNameField() {
 		categoryNameField.sendKeys("NoteBooks");
-
 	}
 
 	public void clickOnResetButton() {
-		
 		categoryResetButton.click();
-	
 	}
-	public void categorySearch()
-	{
+
+	public void categorySearch() {
 		clickSearch.click();
 		enterSearchCategory.sendKeys("iphone");
 		clickSearchButton.click();
 	}
-	
-	public boolean isResestButtonDisplayed() {
-		// TODO Auto-generated method stub
-		return categoryResetButton.isDisplayed();
-	}
-	
-	public boolean imagePreviewOfCategory()
-	{
+
+	public boolean imagePreviewOfCategory() {
 		return imagePreview.isEnabled();
 	}
 }

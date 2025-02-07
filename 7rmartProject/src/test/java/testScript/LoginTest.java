@@ -1,19 +1,15 @@
 package testScript;
 
 import java.io.IOException;
-import java.net.http.WebSocket;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import automationCore.Base;
 import pages.LoginPage;
 import utilities.ExcelUtilities;
-import utilities.WaitUtility;
+
 
 public class LoginTest extends Base {
-	@Test(description = "Login using valid credentials", priority = 1)
+	@Test(description = "Login using valid credentials", priority = 1,groups = {"smoke"})
 	public void userLoginUsingValidUsernameAndValidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
@@ -26,7 +22,7 @@ public class LoginTest extends Base {
 
 	}
 
-	@Test(description = "Login using valid username and invalid password", priority = 2)
+	@Test(description = "Login using valid username and invalid password", priority = 2,groups= {"smoke"})
 	public void userLoginUsingValidUsernameAndInvalidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(2, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(2, 1, "LoginPage");

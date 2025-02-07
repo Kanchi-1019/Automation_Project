@@ -4,13 +4,13 @@
   <parameter name="browser" value="Chrome"/>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testScript.CategoryTest">
+      <class name="testScript.Sub_CategoryTest">
         <methods>
-          <include name="userCanAbleToChooseFile"/>
           <include name="initializeBrowser"/>
+          <include name="userCanAbleToAddNewSub_Category"/>
           <include name="driverCloseAndQuit"/>
         </methods>
-      </class> <!-- testScript.CategoryTest -->
+      </class> <!-- testScript.Sub_CategoryTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

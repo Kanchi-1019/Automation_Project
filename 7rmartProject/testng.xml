@@ -4,10 +4,9 @@
 	<parameter name="browser" value="Chrome"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScript.CategoryTest">
-
+			<class name="testScript.LoginTest">
 				<methods>
-					<include name="userCanAbleToResetTheCategoryList"></include>
+					<include name="userLoginUsingValidUsernameAndInvalidPassword"></include>
 				</methods>
 			</class>
 		</classes>

@@ -42,9 +42,11 @@ public class CategoryTest extends Base {
 		CategoryPage category = new CategoryPage(driver);
 		category.clickOnCategory();
 		category.categorySearch();
-		boolean isResetButtonDisplayed=category.isResestButtonDisplayed();
 		category.clickOnResetButton();
-		Assert.assertTrue(isResetButtonDisplayed,"Reset Button not displayed");
+		String actual=driver.getCurrentUrl();
+		String expected="https://groceryapp.uniqassosiates.com/admin/list-category";
+		Assert.assertEquals(actual,expected);
+	
 		
 	}
 

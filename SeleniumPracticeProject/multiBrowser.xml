@@ -3,9 +3,7 @@
 <suite name="Multi Browser Testing" parallel="tests" thread-count="2">
 <test thread-count="5" name="ChromeTest">
 	<parameter name="browser" value="Chrome"></parameter>
-	
-		<classes>
-
+			<classes>
 			<class name="testScript.LoginTest">
 			<methods>
 			<include name="userLoginWithInvalidUsernameAndInvalidPassword"></include>
@@ -17,8 +15,7 @@
 	</test> <!--
 	Test --><test thread-count="5" name="EdgeTest">
 	<parameter name="browser" value="Edge"></parameter>
-	
-		<classes>
+			<classes>
 
 			<class name="testScript.LoginTest">
 			<methods>

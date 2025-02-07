@@ -34,6 +34,9 @@ public class Sub_CategoryPage {
 	private WebElement chooseFile;
 	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement saveButton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement newAddAlert;
+	@FindBy(xpath="//td[text()='Toys']")private WebElement searchItem;
+	
 
 	public void clickOnSubCategory() {
 		subCategoryClick.click();
@@ -66,7 +69,7 @@ public class Sub_CategoryPage {
 	}
 
 	public void enterSubCategoryName() {
-		enterName.sendKeys("Iphone 16");
+		enterName.sendKeys("Iphone 16series");
 	}
 
 	public void toChooseFile() {
@@ -83,16 +86,16 @@ public class Sub_CategoryPage {
 		return subCategoryClick.isDisplayed();
 	}
 
-	public boolean isDeleteIconEnabled() {
-		return deleteIcon.isEnabled();
+	public boolean newAddAlertDisplayed() {
+		return newAddAlert.isDisplayed();
 	}
 
 	public boolean isSubmitButtonDisplayed() {
 		return submitSearch.isDisplayed();
 	}
 
-	public boolean isSaveButtonEnabled() {
-		return saveButton.isEnabled();
+	public boolean isitemDisplayed() {
+		return searchItem.isDisplayed();
 	}
 
 }
