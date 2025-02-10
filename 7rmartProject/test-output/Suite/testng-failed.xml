@@ -7,8 +7,8 @@
       <class name="testScript.Sub_CategoryTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="userCanAbleToAddNewSub_Category"/>
           <include name="driverCloseAndQuit"/>
+          <include name="selectSubCategoryFromSearchList"/>
         </methods>
       </class> <!-- testScript.Sub_CategoryTest -->
     </classes>

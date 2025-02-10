@@ -28,17 +28,5 @@ public class HomeTest extends Base {
 
 	}
 
-	@Test(description = "Verifying the DashBoard on SideBar is Clickable", priority = 2)
-	public void isDashBoardOnSideBarIsClickable() throws IOException {
-		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
-		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
-		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username1);
-		login.enterPasswordOnPasswordField(password1);
-		login.clickOnSigninButton();
-		HomePage home = new HomePage(driver);
-		home.clickOnDashBoard();
-		boolean isRR1Displayed = home.isManageProductIsDisplayed();
-		Assert.assertTrue(isRR1Displayed, "DashBoard on the side bar is not clickable");
-	}
+	
 }

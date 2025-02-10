@@ -1,10 +1,14 @@
 package pages;
 
+import java.io.FileNotFoundException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import constants.Constants;
 
 public class Sub_CategoryPage {
 	public WebDriver driver;
@@ -26,9 +30,9 @@ public class Sub_CategoryPage {
 	private WebElement submitSearch;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement clickNew;
-	@FindBy(xpath = "//select[@name='cat_id']")
+	@FindBy(xpath = "//select[@id='un']")
 	private WebElement selectCategory;
-	@FindBy(xpath = "//input[@id='subcategory']")
+	@FindBy(xpath = "//input[@placeholder='Sub Category']")
 	private WebElement enterName;
 	@FindBy(xpath = "//input[@id='main_img']")
 	private WebElement chooseFile;
@@ -38,6 +42,7 @@ public class Sub_CategoryPage {
 	private WebElement newAddAlert;
 	@FindBy(xpath = "//td[text()='Toys']")
 	private WebElement searchItem;
+	@FindBy(xpath="//select[@id='cat_id']")private WebElement addCategory;
 
 	public void clickOnSubCategory() {
 		subCategoryClick.click();
@@ -51,9 +56,14 @@ public class Sub_CategoryPage {
 		searchSubCategory.click();
 	}
 
-	public void selectSubCategory() {
+	public void selectSubCategory(String item) {
 		Select select = new Select(selectSearch);
-		select.selectByVisibleText("Toys");
+		select.selectByVisibleText(item);
+	}
+	public void selectCategoryToAddSubCategory(String item)
+	{
+		Select select=new Select(addCategory);
+		select.selectByVisibleText(item);
 	}
 
 	public void submitSearch() {
@@ -64,18 +74,19 @@ public class Sub_CategoryPage {
 		clickNew.click();
 	}
 
-	public void selectCategoryFromList() {
+	public void selectCategoryFromList(String categorySelect) {
 		Select select = new Select(selectCategory);
-		select.selectByVisibleText("iphone");
+		select.selectByVisibleText(categorySelect);
 	}
 
-	public void enterSubCategoryName() {
-		enterName.sendKeys("Iphone 16series");
+	public void enterSubCategoryName(String subcategory) {
+		enterName.sendKeys(subcategory);
 	}
 
-	public void toChooseFile() {
-		String projectPath = System.getProperty("user.dir");
-		chooseFile.sendKeys(projectPath + "\\src\\test\\resources\\Sub_CategoryImage.jpg");
+	public void toChooseFile() throws FileNotFoundException {
+		
+		chooseFile.sendKeys(Constants.IMAGEDATAFILE);
+
 	}
 
 	public void clickOnSaveButton() {
@@ -99,4 +110,5 @@ public class Sub_CategoryPage {
 		return searchItem.isDisplayed();
 	}
 
+	
 }

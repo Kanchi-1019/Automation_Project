@@ -4,9 +4,9 @@
 	<parameter name="browser" value="Chrome"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScript.LoginTest">
+			<class name="testScript.Sub_CategoryTest">
 				<methods>
-					<include name="userLoginUsingValidUsernameAndInvalidPassword"></include>
+					<include name="selectSubCategoryFromSearchList"></include>
 				</methods>
 			</class>
 		</classes>

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constants.Constants;
+
 public class CategoryPage {
 	public WebDriver driver;
 
@@ -44,23 +46,23 @@ public class CategoryPage {
 		newButton.click();
 	}
 
-	public boolean toChooseFile() {
-		String projectPath = System.getProperty("user.dir");
-		chooseFile.sendKeys(projectPath + "\\src\\test\\resources\\CategoryBook.png");
-		return false;
+	public void toChooseFile() {
+		chooseFile.sendKeys(Constants.IMAGEDATAFILE);
+		
 	}
 
-	public void enterValueOnCategoryNameField() {
-		categoryNameField.sendKeys("NoteBooks");
+	public void enterValueOnCategoryNameField(String enterCategoryName) {
+		categoryNameField.sendKeys(enterCategoryName);
+		
 	}
 
 	public void clickOnResetButton() {
 		categoryResetButton.click();
 	}
 
-	public void categorySearch() {
+	public void categorySearch(String searchCategory) {
 		clickSearch.click();
-		enterSearchCategory.sendKeys("iphone");
+	enterSearchCategory.sendKeys(Constants.TESTDATAFILE);
 		clickSearchButton.click();
 	}
 

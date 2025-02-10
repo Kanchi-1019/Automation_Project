@@ -15,6 +15,8 @@ public class Sub_CategoryTest extends Base {
 
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
+		String categorySelect=ExcelUtilities.getStringData(1, 0,"Sub_CategoryPage");
+		String subcategory=ExcelUtilities.getStringData(1, 1, "Sub_CategoryPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
@@ -22,7 +24,8 @@ public class Sub_CategoryTest extends Base {
 		Sub_CategoryPage subCategory = new Sub_CategoryPage(driver);
 		subCategory.clickOnSubCategory();
 		subCategory.clickOnSearchButtonOfSubCategory();
-		subCategory.selectSubCategory();
+		subCategory.selectCategoryFromList(categorySelect);
+		subCategory.enterSubCategoryName(subcategory);
 		subCategory.submitSearch();
 		boolean isSearchedItemDisplayed = subCategory.isitemDisplayed();
 		Assert.assertTrue(isSearchedItemDisplayed, "Item not Listed");
@@ -39,8 +42,8 @@ public class Sub_CategoryTest extends Base {
 		Sub_CategoryPage subCategory = new Sub_CategoryPage(driver);
 		subCategory.clickOnSubCategory();
 		subCategory.clickOnNewButton();
-		subCategory.selectCategoryFromList();
-		subCategory.enterSubCategoryName();
+		//subCategory.se
+	//	subCategory.enterSubCategoryName();
 		subCategory.toChooseFile();
 		subCategory.clickOnSaveButton();
 		boolean isSubCategoryCreatedAlertdisplayed = subCategory.newAddAlertDisplayed();

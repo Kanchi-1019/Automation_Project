@@ -24,7 +24,8 @@ public class CategoryTest extends Base {
 		CategoryPage category = new CategoryPage(driver);
 		category.clickOnCategory();
 		category.clickNewCategory();
-		category.enterValueOnCategoryNameField();
+		String categoryName=ExcelUtilities.getStringData(1, 0,"CategoryPage" );
+		category.enterValueOnCategoryNameField(categoryName);
 		boolean isImagePreviewEnabled = category.imagePreviewOfCategory();
 		category.toChooseFile();
 		assertTrue(isImagePreviewEnabled, "Unable to Choose the File");
@@ -41,7 +42,8 @@ public class CategoryTest extends Base {
 		login.clickOnSigninButton();
 		CategoryPage category = new CategoryPage(driver);
 		category.clickOnCategory();
-		category.categorySearch();
+		String searchCategory=ExcelUtilities.getStringData(1, 1,"CategoryPage");
+		category.categorySearch(searchCategory);
 		category.clickOnResetButton();
 		String actual = driver.getCurrentUrl();
 		String expected = "https://groceryapp.uniqassosiates.com/admin/list-category";
