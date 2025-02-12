@@ -17,6 +17,7 @@ public class ManageNewsPage {
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newButton;
 	@FindBy(xpath="//textarea[@id=\"news\"]")WebElement news;
 	@FindBy(xpath="//button[@class='btn btn-danger']")WebElement saveButton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alertMsg;
 	
 	public void clickOnTheManageNews()
 	{
@@ -33,6 +34,10 @@ public class ManageNewsPage {
 	public void clickOnTheSaveButton()
 	{
 		saveButton.click();
+	}
+	public boolean alertForNewMsgAdd()
+	{
+		return alertMsg.isDisplayed();
 	}
 	
 	

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class LoginPage {
 	public WebDriver driver;
 
@@ -32,8 +34,11 @@ public class LoginPage {
 		password.sendKeys(password1);
 	}
 
-	public void clickOnSigninButton() {
+	public LoginPage clickOnSigninButton() {
+		WaitUtility wait=new WaitUtility();
+		wait.waitUntilTheElementToBeClickable(driver,signInButton);
 		signInButton.click();
+		return new LoginPage(driver);
 	}
 
 	public boolean isAlertDisplayed() {
@@ -44,5 +49,5 @@ public class LoginPage {
 	public boolean isDashboardisDisplayed() {
 		return dashboard.isDisplayed();
 	}
-
+	
 }

@@ -2,11 +2,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<parameter name="browser" value="Chrome"></parameter>
+	<listeners>
+	<listener class-name="listeners.Listeners"></listener>
+	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScript.Sub_CategoryTest">
+			<class name="testScript.LoginTest">
 				<methods>
-					<include name="selectSubCategoryFromSearchList"></include>
+					<include name="userLoginUsingValidUsernameAndValidPassword"></include>
 				</methods>
 			</class>
 		</classes>

@@ -1,6 +1,7 @@
 package testScript;
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationCore.Base;
@@ -26,6 +27,8 @@ public class ManageNewsTest extends Base{
 		news.clickOnTheNewButton();
 		news.enterNewsOnTheNewsField(enterNews);
 		news.clickOnTheSaveButton();
+		boolean isAlertDisplayed=news.alertForNewMsgAdd();
+		Assert.assertTrue(isAlertDisplayed,"Unable to add news successfully");
 		
 	}
 

@@ -5,13 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import automationCore.Base;
 import pages.LoginPage;
-import pages.Sub_CategoryPage;
+import pages.SubCategoryPage;
 import utilities.ExcelUtilities;
 
-public class Sub_CategoryTest extends Base {
+public class SubCategoryTest extends Base {
 
 	@Test(description = "User can able to Select SubCategory from Search List", priority = 1)
-	public void selectSubCategoryFromSearchList() throws IOException {
+	public void selectSubCategoryFromSearchListUsingCategoryAndSubCategoryName() throws IOException {
 
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
@@ -21,7 +21,7 @@ public class Sub_CategoryTest extends Base {
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
 		login.clickOnSigninButton();
-		Sub_CategoryPage subCategory = new Sub_CategoryPage(driver);
+		SubCategoryPage subCategory = new SubCategoryPage(driver);
 		subCategory.clickOnSubCategory();
 		subCategory.clickOnSearchButtonOfSubCategory();
 		subCategory.selectCategoryFromList(categorySelect);
@@ -32,18 +32,20 @@ public class Sub_CategoryTest extends Base {
 	}
 
 	@Test(description = " User can able to add new Sub_category", priority = 2)
-	public void userCanAbleToAddNewSub_Category() throws IOException {
+	public void userCanAbleToAddNewSubCategoryUsingCategoryAndSubcategoryName() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(1, 1, "LoginPage");
+		String item=ExcelUtilities.getStringData(2, 0, "Sub_CategoryPage");
+		String enterName=ExcelUtilities.getStringData(2, 1, "Sub_CategoryPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
 		login.clickOnSigninButton();
-		Sub_CategoryPage subCategory = new Sub_CategoryPage(driver);
+		SubCategoryPage subCategory = new SubCategoryPage(driver);
 		subCategory.clickOnSubCategory();
 		subCategory.clickOnNewButton();
-		//subCategory.se
-	//	subCategory.enterSubCategoryName();
+		subCategory.selectCategoryToAddSubCategory(item);
+		subCategory.enterSubCategoryName(enterName);
 		subCategory.toChooseFile();
 		subCategory.clickOnSaveButton();
 		boolean isSubCategoryCreatedAlertdisplayed = subCategory.newAddAlertDisplayed();

@@ -24,6 +24,7 @@ public class AdminUserPage {
 	@FindBy(xpath="//input[@name='un']")private WebElement inputSearchUsername;
 	@FindBy(xpath="//select[@id='ut']")private WebElement selectSearchType;
 	@FindBy(xpath="//button[@value='sr']")private WebElement searchButton;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alertNewAdminUser;
 	
 	
 	public void clickOnTheAdminUserOnSideBar()
@@ -72,5 +73,9 @@ public class AdminUserPage {
 	public void clickOnSearchButton()
 	{
 		searchButton.click();
+	}
+	public boolean alertForNewAdminUser()
+	{
+		return alertNewAdminUser.isDisplayed();
 	}
 }

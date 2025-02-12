@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testScript.Sub_CategoryTest" class="method navigator-link" hash-for-method="selectSubCategoryFromSearchList">selectSubCategoryFromSearchList</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testScript.LoginTest" class="method navigator-link" hash-for-method="userLoginUsingValidUsernameAndValidPassword">userLoginUsingValidUsernameAndValidPassword</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -121,16 +121,16 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testScript.Sub_CategoryTest</span>
+              <span class="class-name">testScript.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="selectSubCategoryFromSearchList">
-                  </a> <!-- selectSubCategoryFromSearchList -->
-                  <span class="method-name">selectSubCategoryFromSearchList</span>
+                  <a name="userLoginUsingValidUsernameAndValidPassword">
+                  </a> <!-- userLoginUsingValidUsernameAndValidPassword -->
+                  <span class="method-name">userLoginUsingValidUsernameAndValidPassword</span>
                   <em>
-(User can able to Select SubCategory from Search List)                  </em>
+(Login using valid credentials)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -146,13 +146,16 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;listeners.Listeners&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testScript.Sub_CategoryTest&quot;&gt;
+      &lt;class name=&quot;testScript.LoginTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;selectSubCategoryFromSearchList&quot;/&gt;
+          &lt;include name=&quot;userLoginUsingValidUsernameAndValidPassword&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- testScript.Sub_CategoryTest --&gt;
+      &lt;/class&gt; &lt;!-- testScript.LoginTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -176,6 +179,14 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">userLoginUsingValidUsernameAndValidPassword</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -194,14 +205,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'selectSubCategoryFromSearchList')
-data.setCell(0, 2, 'testScript.Sub_CategoryTest')
-data.setCell(0, 3, 6059);
+data.setCell(0, 1, 'userLoginUsingValidUsernameAndValidPassword')
+data.setCell(0, 2, 'testScript.LoginTest')
+data.setCell(0, 3, 4086);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -216,13 +227,17 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">testScript.Sub_CategoryTest</span>
+              <span class="ignored-class-name">testScript.LoginTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">userCanAbleToAddNewSub_Category</span>
+                <span class="ignored-method-name">userLoginUsingInvalidUsernameAndValidPassword</span>
+                <br/>
+                <span class="ignored-method-name">userLoginUsingValidUsernameAndInvalidPassword</span>
+                <br/>
+                <span class="ignored-method-name">userLoginUsingInvalidUsernameAndInvalidPassword</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -234,18 +249,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testScript.Sub_CategoryTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testScript.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">initializeBrowser(Chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">selectSubCategoryFromSearchList</span>
-                <span class="method-start">6006 ms</span>
+                <span class="method-name">userLoginUsingValidUsernameAndValidPassword</span>
+                <span class="method-start">8121 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">driverCloseAndQuit([TestResult name=selectSubCategoryFromSearchList status=SUCCESS method=Sub_CategoryTest.selectSubCat...)</span>
-                <span class="method-start">12072 ms</span>
+                <span class="method-name">driverCloseAndQuit([TestResult name=userLoginUsingValidUsernameAndValidPassword status=SUCCESS method=LoginTest.userLog...)</span>
+                <span class="method-start">12211 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

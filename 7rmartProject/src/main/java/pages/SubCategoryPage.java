@@ -10,10 +10,10 @@ import org.openqa.selenium.support.ui.Select;
 
 import constants.Constants;
 
-public class Sub_CategoryPage {
+public class SubCategoryPage {
 	public WebDriver driver;
 
-	public Sub_CategoryPage(WebDriver driver) {
+	public SubCategoryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -32,7 +32,7 @@ public class Sub_CategoryPage {
 	private WebElement clickNew;
 	@FindBy(xpath = "//select[@id='un']")
 	private WebElement selectCategory;
-	@FindBy(xpath = "//input[@placeholder='Sub Category']")
+	@FindBy(id="subcategory")
 	private WebElement enterName;
 	@FindBy(xpath = "//input[@id='main_img']")
 	private WebElement chooseFile;
@@ -42,16 +42,13 @@ public class Sub_CategoryPage {
 	private WebElement newAddAlert;
 	@FindBy(xpath = "//td[text()='Toys']")
 	private WebElement searchItem;
-	@FindBy(xpath="//select[@id='cat_id']")private WebElement addCategory;
+	@FindBy(xpath="//select[@id='cat_id']")private WebElement selectCategory1;
 
 	public void clickOnSubCategory() {
 		subCategoryClick.click();
 	}
 
-	public void clickOnDeleteButton() {
-		deleteIcon.click();
-	}
-
+	
 	public void clickOnSearchButtonOfSubCategory() {
 		searchSubCategory.click();
 	}
@@ -62,7 +59,7 @@ public class Sub_CategoryPage {
 	}
 	public void selectCategoryToAddSubCategory(String item)
 	{
-		Select select=new Select(addCategory);
+		Select select=new Select(selectCategory1);
 		select.selectByVisibleText(item);
 	}
 
