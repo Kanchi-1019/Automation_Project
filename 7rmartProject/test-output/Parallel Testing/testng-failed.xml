@@ -4,25 +4,25 @@
   <test thread-count="2" parallel="tests" name="Test1(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="testScript.CategoryTest">
+      <class name="testScript.LoginTest">
         <methods>
-          <include name="userCanAbleToChooseFile"/>
+          <include name="userLoginUsingValidUsernameAndValidPassword"/>
           <include name="initializeBrowser"/>
           <include name="driverCloseAndQuit"/>
         </methods>
-      </class> <!-- testScript.CategoryTest -->
+      </class> <!-- testScript.LoginTest -->
     </classes>
   </test> <!-- Test1(failed) -->
   <test thread-count="2" parallel="tests" name="Test2(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="testScript.CategoryTest">
+      <class name="testScript.LoginTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="userCanAbleToResetTheCategoryList"/>
           <include name="driverCloseAndQuit"/>
+          <include name="userLoginUsingValidUsernameAndInvalidPassword"/>
         </methods>
-      </class> <!-- testScript.CategoryTest -->
+      </class> <!-- testScript.LoginTest -->
     </classes>
   </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Parallel Testing] -->

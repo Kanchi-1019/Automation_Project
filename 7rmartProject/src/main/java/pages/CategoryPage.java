@@ -47,13 +47,13 @@ public class CategoryPage {
 	}
 
 	public void toChooseFile() {
-		chooseFile.sendKeys(Constants.IMAGEDATAFILE);
-		
+		chooseFile.sendKeys(Constants.IMAGEDATAFILECATEGORY);
+
 	}
 
 	public void enterValueOnCategoryNameField(String enterCategoryName) {
 		categoryNameField.sendKeys(enterCategoryName);
-		
+
 	}
 
 	public void clickOnResetButton() {
@@ -62,7 +62,7 @@ public class CategoryPage {
 
 	public void categorySearch(String searchCategory) {
 		clickSearch.click();
-	enterSearchCategory.sendKeys(Constants.TESTDATAFILE);
+		enterSearchCategory.sendKeys(Constants.TESTDATAFILE);
 		clickSearchButton.click();
 	}
 

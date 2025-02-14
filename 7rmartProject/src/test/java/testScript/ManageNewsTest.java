@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationCore.Base;
+import constants.Messages;
 import pages.LoginPage;
 import pages.ManageNewsPage;
-import utilities.ExcelUtilities;
+import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base{
 	
@@ -15,9 +16,9 @@ public class ManageNewsTest extends Base{
 	@Test(description = "User can able to enter news on the news field of Manage News",priority=1)
 		public void userCanEnterNewsOnTheNewsFieldOfManageNews() throws IOException
 	{
-		String username1=ExcelUtilities.getStringData(1, 0, "LoginPage");
-		String password1=ExcelUtilities.getStringData(1, 1,"LoginPage");
-		String enterNews=ExcelUtilities.getStringData(1, 0, "ManageNewsPage");
+		String username1=ExcelUtility.getStringData(1, 0, "LoginPage");
+		String password1=ExcelUtility.getStringData(1, 1,"LoginPage");
+		String enterNews=ExcelUtility.getStringData(1, 0, "ManageNewsPage");
 		LoginPage login=new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
@@ -28,7 +29,7 @@ public class ManageNewsTest extends Base{
 		news.enterNewsOnTheNewsField(enterNews);
 		news.clickOnTheSaveButton();
 		boolean isAlertDisplayed=news.alertForNewMsgAdd();
-		Assert.assertTrue(isAlertDisplayed,"Unable to add news successfully");
+		Assert.assertTrue(isAlertDisplayed,Messages.ERRORMESSAGEFORADDNEWS);
 		
 	}
 

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-
 import constants.Constants;
+import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -43,24 +43,31 @@ public class SubCategoryPage {
 	@FindBy(xpath = "//td[text()='Toys']")
 	private WebElement searchItem;
 	@FindBy(xpath="//select[@id='cat_id']")private WebElement selectCategory1;
-
+	@FindBy(xpath="//input[@name='ut']")private WebElement enterSubCategory;
+	
+	PageUtility page=new PageUtility();
+	
 	public void clickOnSubCategory() {
 		subCategoryClick.click();
 	}
-
+public void inputSubCategory(String subCategory)
+{
+enterSubCategory.sendKeys(subCategory);
+}
 	
 	public void clickOnSearchButtonOfSubCategory() {
 		searchSubCategory.click();
 	}
 
 	public void selectSubCategory(String item) {
-		Select select = new Select(selectSearch);
-		select.selectByVisibleText(item);
+		
+		page.selectDropdownWithValue(selectSearch, item);
+		
 	}
 	public void selectCategoryToAddSubCategory(String item)
 	{
-		Select select=new Select(selectCategory1);
-		select.selectByVisibleText(item);
+		page.selectDropDownWithVisibleText(selectCategory1, item);
+		
 	}
 
 	public void submitSearch() {
@@ -72,8 +79,10 @@ public class SubCategoryPage {
 	}
 
 	public void selectCategoryFromList(String categorySelect) {
-		Select select = new Select(selectCategory);
-		select.selectByVisibleText(categorySelect);
+		
+		page.selectDropDownWithVisibleText(selectCategory, categorySelect);
+		
+		
 	}
 
 	public void enterSubCategoryName(String subcategory) {
@@ -97,7 +106,9 @@ public class SubCategoryPage {
 
 	public boolean newAddAlertDisplayed() {
 		return newAddAlert.isDisplayed();
+
 	}
+	
 
 	public boolean isSubmitButtonDisplayed() {
 		return submitSearch.isDisplayed();

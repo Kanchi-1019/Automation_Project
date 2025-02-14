@@ -16,7 +16,7 @@ import utilities.WaitUtility;
 public class Base {
 	public WebDriver driver;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception {
 		if(browser.equalsIgnoreCase("Chrome"))
@@ -44,7 +44,7 @@ public class Base {
 		wait.implicitWait(driver);
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void driverCloseAndQuit(ITestResult iTestResult) throws IOException
 	{
 	if(iTestResult.getStatus()==ITestResult.FAILURE)
@@ -52,7 +52,7 @@ public class Base {
 		ScreenShotUtility screenShot=new ScreenShotUtility();
 		screenShot.getScreenshot(driver, iTestResult.getName());
 	}
-		//driver.quit();
+		driver.quit();
 		
 	}
 	

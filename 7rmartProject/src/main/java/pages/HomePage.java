@@ -38,12 +38,6 @@ public class HomePage {
 		settings.click();
 	}
 
-	public void clickOnDashBoard() {
-		dashBoard.click();
-	}
-
-	public boolean isManageProductIsDisplayed() {
-		return rR1.isDisplayed();
-	}
-
+	
+	
 }

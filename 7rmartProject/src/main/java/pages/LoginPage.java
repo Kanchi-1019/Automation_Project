@@ -34,11 +34,11 @@ public class LoginPage {
 		password.sendKeys(password1);
 	}
 
-	public LoginPage clickOnSigninButton() {
-		WaitUtility wait=new WaitUtility();
-		wait.waitUntilTheElementToBeClickable(driver,signInButton);
+	public void clickOnSigninButton() {
+		WaitUtility wait = new WaitUtility();
+		wait.waitUntilTheElementToBeClickable(driver, signInButton);
 		signInButton.click();
-		return new LoginPage(driver);
+
 	}
 
 	public boolean isAlertDisplayed() {
@@ -49,5 +49,5 @@ public class LoginPage {
 	public boolean isDashboardisDisplayed() {
 		return dashboard.isDisplayed();
 	}
-	
+
 }
