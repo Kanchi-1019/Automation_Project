@@ -160,7 +160,7 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;Parallel Testing&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test1&quot;&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;Firefox&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;testScript.LoginTest&quot;&gt;
         &lt;methods&gt;
@@ -170,7 +170,7 @@
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test1 --&gt;
   &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test2&quot;&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;Firefox&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;testScript.LoginTest&quot;&gt;
         &lt;methods&gt;
@@ -231,16 +231,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'userLoginWithInvalidUsernameAndInvalidPassword')
 data.setCell(0, 2, 'testScript.LoginTest')
-data.setCell(0, 3, 542);
+data.setCell(0, 3, 972);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'userLoginWithInvalidUsernameAndValidPassword')
 data.setCell(1, 2, 'testScript.LoginTest')
-data.setCell(1, 3, 479);
+data.setCell(1, 3, 786);
 window.suiteTableData['Parallel_Testing']= { tableData: data, tableDiv: 'times-div-Parallel_Testing'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Parallel_Testing">
               </div> <!-- times-div-Parallel_Testing -->
             </div> <!-- times-div -->
@@ -285,28 +285,28 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">testScript.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">initializeBrowser(Chrome)</span>
+                <span class="method-name">initializeBrowser(Firefox)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">initializeBrowser(Chrome)</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-name">initializeBrowser(Firefox)</span>
+                <span class="method-start">3 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">userLoginWithInvalidUsernameAndValidPassword</span>
-                <span class="method-start">3012 ms</span>
+                <span class="method-name">userLoginWithInvalidUsernameAndInvalidPassword</span>
+                <span class="method-start">16668 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">userLoginWithInvalidUsernameAndInvalidPassword</span>
-                <span class="method-start">3025 ms</span>
+                <span class="method-name">userLoginWithInvalidUsernameAndValidPassword</span>
+                <span class="method-start">16733 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">driverCloseAndQuit</span>
-                <span class="method-start">3496 ms</span>
+                <span class="method-start">17527 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">driverCloseAndQuit</span>
-                <span class="method-start">3569 ms</span>
+                <span class="method-start">17643 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

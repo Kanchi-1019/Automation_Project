@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import constants.Constants;
 import utilities.PageUtility;
-import utilities.WaitUtility;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -18,8 +17,6 @@ public class SubCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//p[text()='Sub Category']")
-	private WebElement subCategoryClick;
 	@FindBy(xpath = "//a[@href='javascript:void(0)']")
 	private WebElement deleteIcon;
 	@FindBy(xpath = "//a[@href=\"javascript:void(0)\"]")
@@ -32,7 +29,7 @@ public class SubCategoryPage {
 	private WebElement clickNew;
 	@FindBy(xpath = "//select[@id='un']")
 	private WebElement selectCategory;
-	@FindBy(id="subcategory")
+	@FindBy(id = "subcategory")
 	private WebElement enterName;
 	@FindBy(xpath = "//input[@id='main_img']")
 	private WebElement chooseFile;
@@ -42,73 +39,74 @@ public class SubCategoryPage {
 	private WebElement newAddAlert;
 	@FindBy(xpath = "//td[text()='Toys']")
 	private WebElement searchItem;
-	@FindBy(xpath="//select[@id='cat_id']")private WebElement selectCategory1;
-	@FindBy(xpath="//input[@name='ut']")private WebElement enterSubCategory;
-	
-	PageUtility page=new PageUtility();
-	
-	public void clickOnSubCategory() {
-		subCategoryClick.click();
+	@FindBy(xpath = "//select[@id='cat_id']")
+	private WebElement selectCategory1;
+	@FindBy(xpath = "//input[@name='ut']")
+	private WebElement enterSubCategory;
+
+	PageUtility page = new PageUtility();
+
+	public SubCategoryPage inputSubCategory(String subCategory) {
+		enterSubCategory.sendKeys(subCategory);
+		return this;
 	}
-public void inputSubCategory(String subCategory)
-{
-enterSubCategory.sendKeys(subCategory);
-}
-	
-	public void clickOnSearchButtonOfSubCategory() {
+
+	public SubCategoryPage clickOnSearchButtonOfSubCategory() {
 		searchSubCategory.click();
+		return this;
 	}
 
 	public void selectSubCategory(String item) {
-		
+
 		page.selectDropdownWithValue(selectSearch, item);
-		
+
 	}
-	public void selectCategoryToAddSubCategory(String item)
-	{
+
+	public SubCategoryPage selectCategoryToAddSubCategory(String item) {
 		page.selectDropDownWithVisibleText(selectCategory1, item);
-		
+		return this;
+
 	}
 
-	public void submitSearch() {
+	public SubCategoryPage submitSearch() {
 		submitSearch.click();
+		return this;
 	}
 
-	public void clickOnNewButton() {
+	public SubCategoryPage clickOnNewButton() {
 		clickNew.click();
+		return this;
 	}
 
-	public void selectCategoryFromList(String categorySelect) {
-		
+	public SubCategoryPage selectCategoryFromList(String categorySelect) {
+
 		page.selectDropDownWithVisibleText(selectCategory, categorySelect);
-		
-		
+		return this;
+
 	}
 
-	public void enterSubCategoryName(String subcategory) {
+	public SubCategoryPage enterSubCategoryName(String subcategory) {
 		enterName.sendKeys(subcategory);
+		return this;
 	}
 
-	public void toChooseFile() throws FileNotFoundException {
-		
+	public SubCategoryPage toChooseFile() throws FileNotFoundException {
+
 		chooseFile.sendKeys(Constants.IMAGEDATAFILE);
+		return this;
 
 	}
 
-	public void clickOnSaveButton() {
+	public SubCategoryPage clickOnSaveButton() {
 		saveButton.click();
+		return this;
 
-	}
-
-	public boolean isSubCategoryisDisplayed() {
-		return subCategoryClick.isDisplayed();
 	}
 
 	public boolean newAddAlertDisplayed() {
 		return newAddAlert.isDisplayed();
 
 	}
-	
 
 	public boolean isSubmitButtonDisplayed() {
 		return submitSearch.isDisplayed();
@@ -118,5 +116,4 @@ enterSubCategory.sendKeys(subCategory);
 		return searchItem.isDisplayed();
 	}
 
-	
 }

@@ -15,8 +15,6 @@ public class ManageNewsPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//p[text()='Manage News']")
-	WebElement manageNewsButton;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	WebElement newButton;
 	@FindBy(xpath = "//textarea[@id=\"news\"]")
@@ -26,22 +24,21 @@ public class ManageNewsPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertMsg;
 
-	public void clickOnTheManageNews() {
-		manageNewsButton.click();
-	}
-
-	public void clickOnTheNewButton() {
+	public ManageNewsPage clickOnTheNewButton() {
 		newButton.click();
+		return this;
 	}
 
-	public void enterNewsOnTheNewsField(String enterNews) {
+	public ManageNewsPage enterNewsOnTheNewsField(String enterNews) {
 		news.sendKeys(enterNews);
+		return this;
 	}
 
-	public void clickOnTheSaveButton() {
+	public ManageNewsPage clickOnTheSaveButton() {
 		WaitUtility wait = new WaitUtility();
 		saveButton.click();
 		wait.waitUntilTheElementToBeClickable(driver, saveButton);
+		return this;
 	}
 
 	public boolean alertForNewMsgAdd() {

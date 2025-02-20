@@ -15,8 +15,7 @@ public class AdminUserPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
-	private WebElement clickAdminUser;
+	
 	@FindBy(xpath = "//p[text()='Manage Users']")
 	private WebElement clickManageUser;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
@@ -39,50 +38,56 @@ public class AdminUserPage {
 	private WebElement searchButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alertNewAdminUser;
+	
+	
 	PageUtility page = new PageUtility();
-
-	public void clickOnTheAdminUserOnSideBar() {
-		clickAdminUser.click();
-	}
-
-	public void clicktheMangeUserFromAdminUserList() {
+	
+	public AdminUserPage clicktheMangeUserFromAdminUserList() {
 		clickManageUser.click();
+		return this;
 	}
 
-	public void clickOnTheNewButtonOnManageUser() {
+	public AdminUserPage clickOnTheNewButtonOnManageUser() {
 		clickNew.click();
+		return this;
 	}
 
-	public void inputUsernameInNewAdminUserNameField(String newAdminUsername) {
+	public AdminUserPage inputUsernameInNewAdminUserNameField(String newAdminUsername) {
 		inputNewUserName.sendKeys(newAdminUsername);
+		return this;
 	}
 
-	public void inputPasswordInNewAdminPasswordField(String newAdminPassword) {
+	public AdminUserPage inputPasswordInNewAdminPasswordField(String newAdminPassword) {
 		inputNewPassword.sendKeys(newAdminPassword);
+		return this;
 	}
 
-	public void selectUserTypeOfNewAdminUser(String value) {
+	public AdminUserPage selectUserTypeOfNewAdminUser(String value) {
 		
 		page.selectDropdownWithValue(selectNewUserType, value);
+		return this;
 		
-
 	}
 
-	public void saveNewAdminUser() {
+	public AdminUserPage saveNewAdminUser() {
 		saveButton.click();
+		return this;
 	}
 
-	public void clickOnSearchButtonToSearch() {
+	public AdminUserPage clickOnSearchButtonToSearch() {
 		clickSearch.click();
+		return this;
 	}
 
-	public void inputTheSearchUsername(String searchUsername) {
+	public AdminUserPage inputTheSearchUsername(String searchUsername) {
 		inputSearchUsername.sendKeys(searchUsername);
+		return this;
 
 	}
 
-	public void selectUserTypeToSearch(String value) {
+	public AdminUserPage selectUserTypeToSearch(String value) {
 		page.selectDropdownWithValue(selectSearchType, value);
+		return this;
 
 	}
 

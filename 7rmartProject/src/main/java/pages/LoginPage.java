@@ -9,7 +9,7 @@ import utilities.WaitUtility;
 
 public class LoginPage {
 	public WebDriver driver;
-
+	WaitUtility wait = new WaitUtility();
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -26,18 +26,21 @@ public class LoginPage {
 	@FindBy(xpath = "//p[text()='Dashboard']")
 	private WebElement dashboard;
 
-	public void enterUsernameOnUsernameField(String username1) {
+	public LoginPage enterUsernameOnUsernameField(String username1) {
 		username.sendKeys(username1);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordField(String password1) {
+	public LoginPage enterPasswordOnPasswordField(String password1) {
 		password.sendKeys(password1);
+		return this;
 	}
 
-	public void clickOnSigninButton() {
-		WaitUtility wait = new WaitUtility();
+	public HomePage clickOnSigninButton() {
+		
 		wait.waitUntilTheElementToBeClickable(driver, signInButton);
 		signInButton.click();
+		return new HomePage(driver);
 
 	}
 

@@ -8,25 +8,24 @@ import org.testng.annotations.Test;
 import automationCore.Base;
 import constants.Messages;
 import pages.CategoryPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class CategoryTest extends Base {
+	public HomePage homePage;
+	public CategoryPage categoryPage;
 	@Test(description = "User can able to Choose File", priority = 1)
 	public void userCanAbleToChooseFileAndGetImagePreview() throws IOException {
 		String username1 = ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password1 = ExcelUtility.getStringData(1, 1, "LoginPage");
 		String categoryName = ExcelUtility.getStringData(1, 0, "CategoryPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username1);
-		login.enterPasswordOnPasswordField(password1);
-		login.clickOnSigninButton();
-		CategoryPage category = new CategoryPage(driver);
-		category.clickOnCategory();
-		category.clickNewCategory();
-		category.enterValueOnCategoryNameField(categoryName);
-		boolean isImagePreviewEnabled = category.imagePreviewOfCategory();
-		category.toChooseFile();
+		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
+		homePage=login.clickOnSigninButton();
+		categoryPage=homePage.clickOnCategoryPage();
+		categoryPage.clickNewCategory().enterValueOnCategoryNameField(categoryName);
+		boolean isImagePreviewEnabled = categoryPage.imagePreviewOfCategory();
 		assertTrue(isImagePreviewEnabled,Messages.ERRORMESSAGEIMAGEPREVIEW);
 	}
 
@@ -38,13 +37,10 @@ public class CategoryTest extends Base {
 		String searchCategory = ExcelUtility.getStringData(1, 1, "CategoryPage");
 		String urlExpected = ExcelUtility.getStringData(1, 2, "CategoryPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username1);
-		login.enterPasswordOnPasswordField(password1);
-		login.clickOnSigninButton();
-		CategoryPage category = new CategoryPage(driver);
-		category.clickOnCategory();
-		category.categorySearch(searchCategory);
-		category.clickOnResetButton();
+		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
+		homePage=login.clickOnSigninButton();
+		categoryPage=homePage.clickOnCategoryPage();
+		categoryPage.categorySearch(searchCategory).clickOnResetButton();
 		String actual = driver.getCurrentUrl();
 		String expected = urlExpected;
 		Assert.assertEquals(actual, expected,Messages.ERRORMESSAGEFORRESET);

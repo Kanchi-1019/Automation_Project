@@ -12,7 +12,8 @@ public class HomePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
+	@FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
+	private WebElement clickAdminUser;
 	@FindBy(xpath = "//a[@data-toggle='dropdown']")
 	private WebElement adminDropDown;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
@@ -25,18 +26,41 @@ public class HomePage {
 	private WebElement heading;
 	@FindBy(xpath = "//a[@class='nav-link']")
 	private WebElement rR1;
+	@FindBy(xpath = "(//a[@class='small-box-footer'])[3]")private WebElement categoryPageClick;
+	@FindBy(xpath = "//p[text()='Manage News']")
+	WebElement manageNewsButton;
+	@FindBy(xpath = "//p[text()='Sub Category']")
+	private WebElement subCategoryClick;
 
-	public void clickOnLogout() {
+	public HomePage clickOnLogout() {
 		Logout.click();
+		return this;
 	}
 
-	public void clickOnAdminButton() {
+	public HomePage clickOnAdminButton() {
 		adminDropDown.click();
+		return this;
+	}
+	public AdminUserPage clickOnTheAdminUserOnSideBar() {
+		clickAdminUser.click();
+		return new AdminUserPage(driver);
+	}
+	public CategoryPage clickOnCategoryPage()
+	{
+		categoryPageClick.click();
+		return new CategoryPage(driver);
+	}
+	public ManageNewsPage clickOnTheManageNews() {
+		manageNewsButton.click();
+		return new ManageNewsPage(driver);
+	}
+	public SubCategoryPage clickOnSubCategory() {
+		subCategoryClick.click();
+		return new SubCategoryPage(driver);
 	}
 
-	public void clickOnSettings() {
-		settings.click();
-	}
+
+	
 
 	
 	

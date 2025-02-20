@@ -10,8 +10,8 @@
       <class name="testScript.AdminUserTest">
         <methods>
           <include name="initializeBrowser"/>
-          <include name="addNewAdminUserWithValidCredentials"/>
           <include name="driverCloseAndQuit"/>
+          <include name="searchAdminUserUsingValidUsernameAndUserType"/>
         </methods>
       </class> <!-- testScript.AdminUserTest -->
     </classes>

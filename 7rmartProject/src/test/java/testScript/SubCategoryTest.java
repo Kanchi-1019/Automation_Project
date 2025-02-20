@@ -5,11 +5,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import automationCore.Base;
 import constants.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.SubCategoryPage;
 import utilities.ExcelUtility;
 
 public class SubCategoryTest extends Base {
+	public HomePage homePage;
+	public SubCategoryPage subCategory;
 
 	@Test(description = "User can able to Select SubCategory from Search List using category and Subcategory name", priority = 1)
 	public void selectSubCategoryFromSearchListUsingCategoryAndSubCategoryName() throws IOException {
@@ -19,17 +22,13 @@ public class SubCategoryTest extends Base {
 		String categorySelect = ExcelUtility.getStringData(1, 0, "Sub_CategoryPage");
 		String subcategory = ExcelUtility.getStringData(1, 1, "Sub_CategoryPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username1);
-		login.enterPasswordOnPasswordField(password1);
-		login.clickOnSigninButton();
-		SubCategoryPage subCategory = new SubCategoryPage(driver);
-		subCategory.clickOnSubCategory();
-		subCategory.clickOnSearchButtonOfSubCategory();
-		subCategory.selectCategoryFromList(categorySelect);
-		subCategory.inputSubCategory(subcategory);
-		subCategory.submitSearch();
+		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
+		homePage = login.clickOnSigninButton();
+		subCategory = homePage.clickOnSubCategory();
+		subCategory.clickOnSearchButtonOfSubCategory().selectCategoryFromList(categorySelect)
+				.inputSubCategory(subcategory).submitSearch();
 		boolean isSearchedItemDisplayed = subCategory.isitemDisplayed();
-		Assert.assertTrue(isSearchedItemDisplayed,Messages.ERRORMESSAGEFORSEARCHSUBCATEGORY);
+		Assert.assertTrue(isSearchedItemDisplayed, Messages.ERRORMESSAGEFORSEARCHSUBCATEGORY);
 	}
 
 	@Test(description = " User can able to add new Sub_category", priority = 2)
@@ -39,16 +38,11 @@ public class SubCategoryTest extends Base {
 		String item = ExcelUtility.getStringData(2, 0, "Sub_CategoryPage");
 		String enterName = ExcelUtility.getStringData(2, 1, "Sub_CategoryPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameOnUsernameField(username1);
-		login.enterPasswordOnPasswordField(password1);
-		login.clickOnSigninButton();
-		SubCategoryPage subCategory = new SubCategoryPage(driver);
-		subCategory.clickOnSubCategory();
-		subCategory.clickOnNewButton();
-		subCategory.selectCategoryToAddSubCategory(item);
-		subCategory.enterSubCategoryName(enterName);
-		subCategory.toChooseFile();
-		subCategory.clickOnSaveButton();
+		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
+		homePage = login.clickOnSigninButton();
+		subCategory = homePage.clickOnSubCategory();
+		subCategory.clickOnNewButton().selectCategoryToAddSubCategory(item).enterSubCategoryName(enterName)
+				.toChooseFile().clickOnSaveButton();
 		boolean isSubCategoryCreatedAlertdisplayed = subCategory.newAddAlertDisplayed();
 		Assert.assertTrue(isSubCategoryCreatedAlertdisplayed, Messages.ERRORMESSAGEFORADDSUBCATEGORY);
 	}

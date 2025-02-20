@@ -42,12 +42,14 @@ public class CategoryPage {
 		categoryButton.click();
 	}
 
-	public void clickNewCategory() {
+	public CategoryPage clickNewCategory() {
 		newButton.click();
+		return this;
 	}
 
-	public void toChooseFile() {
+	public CategoryPage toChooseFile() {
 		chooseFile.sendKeys(Constants.IMAGEDATAFILECATEGORY);
+		return this;
 
 	}
 
@@ -56,14 +58,16 @@ public class CategoryPage {
 
 	}
 
-	public void clickOnResetButton() {
+	public CategoryPage clickOnResetButton() {
 		categoryResetButton.click();
+		return this;
 	}
 
-	public void categorySearch(String searchCategory) {
+	public CategoryPage categorySearch(String searchCategory) {
 		clickSearch.click();
 		enterSearchCategory.sendKeys(Constants.TESTDATAFILE);
 		clickSearchButton.click();
+		return this;
 	}
 
 	public boolean imagePreviewOfCategory() {
