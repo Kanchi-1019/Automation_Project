@@ -16,10 +16,10 @@
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
 
-			<class name="testScript.LoginTest">
+			<class name="testScript.AdminUserTest">
 				<methods>
 					<include
-						name="userLoginUsingValidUsernameAndInvalidPassword"></include>
+						name="searchAdminUserUsingValidUsernameAndUserType"></include>
 				</methods>
 			</class>
 		</classes>
