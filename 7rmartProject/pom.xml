@@ -54,6 +54,11 @@
     <artifactId>javafaker</artifactId>
     <version>0.15</version>
 </dependency>
+<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
 	</dependencies>
 	 <build> 
  		<plugins> 
@@ -73,7 +78,7 @@
  				<configuration> 
  					<testFailureIgnore>true</testFailureIgnore> 
  					<suiteXmlFiles> 
- 						<suiteXmlFile>grouping.xml</suiteXmlFile> 
+ 						<suiteXmlFile>multiBrowser.xml</suiteXmlFile> 
  					</suiteXmlFiles> 
  				</configuration> 
  			</plugin> 
