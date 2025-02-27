@@ -3,6 +3,7 @@ package testScript;
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import automationCore.Base;
 import constants.Messages;
@@ -12,11 +13,11 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 	public HomePage homePage;
-
+@Parameters({"username","password"})
 	@Test(description = "Login using valid credentials", priority = 1, groups = { "smoke" })
-	public void userLoginUsingValidUsernameAndValidPassword() throws IOException {
-		String username1 = ExcelUtility.getStringData(1, 0, "LoginPage");
-		String password1 = ExcelUtility.getStringData(1, 1, "LoginPage");
+	public void userLoginUsingValidUsernameAndValidPassword(String username1,String password1) throws IOException {
+		//String username1 = ExcelUtility.getStringData(1, 0, "LoginPage");
+		//String password1 = ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
 		homePage = login.clickOnSigninButton();
@@ -31,7 +32,7 @@ public class LoginTest extends Base {
 		String password1 = ExcelUtility.getStringData(2, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1).enterPasswordOnPasswordField(password1);
-		homePage=login.clickOnSigninButton();
+		homePage = login.clickOnSigninButton();
 		boolean isAlertDisplayed = login.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, Messages.INVALIDPASSWORDLOGIN);
 
