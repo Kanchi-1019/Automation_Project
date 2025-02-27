@@ -3,6 +3,8 @@
 <suite name="Multi Browser Testing" parallel="tests" thread-count="2">
 	<test thread-count="5" name="ChromeTest">
 		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="username" value="admin"></parameter>
+		<parameter name="password" value="admin"></parameter>
 		<classes>
 			<class name="testScript.LoginTest">
 				<methods>
@@ -14,6 +16,8 @@
 	Test -->
 		<test thread-count="5" name="FirefoxTest">
 		<parameter name="browser" value="Firefox"></parameter>
+		<parameter name="username" value="admin"></parameter>
+		<parameter name="password" value="admin"></parameter>
 		<classes>
 
 			<class name="testScript.LoginTest">
